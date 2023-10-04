@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cob0s6rvvkkup"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_3hc7g"]
+[ext_resource type="Texture2D" uid="uid://df7l1k8ogbhui" path="res://assets/images/Land.png" id="1_5rq4r"]
+[ext_resource type="PackedScene" uid="uid://ct7ktqf18c3sk" path="res://assets/scenes/prefab/Mouse.tscn" id="2_nqesy"]
+[ext_resource type="Texture2D" uid="uid://cfcbbt28qecf6" path="res://assets/images/bush.png" id="3_boyfi"]
+[ext_resource type="Texture2D" uid="uid://bd0vbxmfsbbnh" path="res://assets/images/Cherry_2.png" id="4_6tyxv"]
+[ext_resource type="Script" path="res://src/Cherry_init.gd" id="4_bpxda"]
+[ext_resource type="AudioStream" uid="uid://xd06lyexyokq" path="res://assets/sound/Cherry_snap.ogg" id="6_ik8ns"]
+[ext_resource type="PackedScene" uid="uid://f4s735vi1in1" path="res://assets/scenes/prefab/UI.tscn" id="7_kb7u1"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_3hc7g")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(568, 320)
+scale = Vector2(2.83102, 1.50615)
+texture = ExtResource("1_5rq4r")
+
+[node name="bush" type="Sprite2D" parent="."]
+modulate = Color(0.282353, 0.282353, 0.282353, 1)
+position = Vector2(208, 416)
+texture = ExtResource("3_boyfi")
+
+[node name="Cherry_container" type="Node2D" parent="."]
+
+[node name="Cherry_hold" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cherry_hold"]
+position = Vector2(-3.8147e-06, 3.8147e-06)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("4_6tyxv")
+
+[node name="Cherry_init" type="Node2D" parent="."]
+script = ExtResource("4_bpxda")
+
+[node name="point1" type="Marker2D" parent="Cherry_init"]
+position = Vector2(64, 312)
+
+[node name="point2" type="Marker2D" parent="Cherry_init"]
+position = Vector2(128, 576)
+
+[node name="point3" type="Marker2D" parent="Cherry_init"]
+position = Vector2(240, 520)
+
+[node name="point4" type="Marker2D" parent="Cherry_init"]
+position = Vector2(40, 600)
+
+[node name="point5" type="Marker2D" parent="Cherry_init"]
+position = Vector2(128, 432)
+
+[node name="Cherrys" type="Node2D" parent="Cherry_init"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cherry_init"]
+stream = ExtResource("6_ik8ns")
+pitch_scale = 2.0
+
+[node name="Mouse" parent="." instance=ExtResource("2_nqesy")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1016.0
+offset_top = 8.0
+offset_right = 1144.0
+offset_bottom = 72.0
+text = "RELOAD"
+
+[node name="UI" parent="." instance=ExtResource("7_kb7u1")]
+
+[connection signal="_cherry_pick_location_sig" from="Cherry_init" to="Cherry_init" method="_on__cherry_pick_location_sig"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
