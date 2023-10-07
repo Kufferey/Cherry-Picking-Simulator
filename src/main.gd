@@ -25,7 +25,7 @@ func _drop_cherry() -> void:
 		Data.score += 7
 		add_child(dropped_cherry_instance)
 
-func _reload_cherry() -> void:
+static func _reload_cherry() -> void:
 	if (Data.isPaused == false):
 		var Cherry_count = $Cherry_init/Cherrys
 		var Child = Cherry_count.get_child_count(true)
@@ -36,6 +36,7 @@ func _reload_cherry() -> void:
 				var child = Cherry_count.get_child(0)
 				Cherry_count.remove_child(child)
 				child.queue_free()
+				break
 				
 			$Cherry_init.emit_signal(
 				"_cherry_pick_location_sig",
