@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var Max_cherrys_allowed:int = 5
+
 signal _cherry_pick_location_sig(_times:int)
 
 #@export var cherry_on_bush: PackedScene
@@ -74,4 +76,8 @@ func _cherry_pick_location(_times:int) -> void:
 		$Cherrys.add_child(Cherry_instance)
 
 func _on__cherry_pick_location_sig(_times) -> void:
-	_cherry_pick_location(_times)
+	if (_times > Max_cherrys_allowed):
+		_times = Max_cherrys_allowed
+		_cherry_pick_location(_times)
+	else :
+		_cherry_pick_location(_times)

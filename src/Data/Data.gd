@@ -8,8 +8,8 @@ var isInCombo:bool = false
 var isInOptionsMenu:bool = false
 # INTS
 var score:int = 0
-var cur_Times:int = 3
-var cur_multi:int = 5
+var cur_Times:int = 0
+var cur_multi:int = 1
 var curCherryModel:int = 1
 # PLAYER SAVE
 var Player:Dictionary = {
