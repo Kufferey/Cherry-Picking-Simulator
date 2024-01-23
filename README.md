@@ -1,4 +1,4 @@
 # Cherry-Picking-Simulator
-Wow, First game i coded then released. Also 6.0 will be the last version until full release.
+First game i coded then released.
 
 Game made in 3-4 days.
