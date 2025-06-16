@@ -2,7 +2,8 @@ extends Node2D
 
 signal _change_mouse_sig(_new:int)
 
-var mouse_mode = 0
+static var mouse_mode = 0
+static var mouse_entered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +11,7 @@ func _ready() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Data.Settings["customMouse"] == true):
 		_change_mouse()
 		self.position = get_global_mouse_position()
@@ -24,6 +25,7 @@ func _change_mouse_mode_var(_new):
 
 func _change_mouse():
 	if (Data.Settings["customMouse"] == true):
+		if mouse_entered: mouse_mode = 1
 		match mouse_mode:
 			0:
 				$Mouse_textures/Normal.show()
@@ -43,21 +45,5 @@ func _change_mouse():
 				$Mouse_textures/Grab.hide()
 
 func _on__change_mouse_sig(_new) -> void:
-	if (Data.Settings["customMouse"] == true):
-		match _new:
-			0:
-				$Mouse_textures/Normal.show()
-				$Mouse_textures/Open.hide()
-				$Mouse_textures/Grab.hide()
-			1:
-				$Mouse_textures/Normal.hide()
-				$Mouse_textures/Open.show()
-				$Mouse_textures/Grab.hide()
-			2:
-				$Mouse_textures/Normal.hide()
-				$Mouse_textures/Open.hide()
-				$Mouse_textures/Grab.show()
-			_:
-				$Mouse_textures/Normal.show()
-				$Mouse_textures/Open.hide()
-				$Mouse_textures/Grab.hide()
+	print("MOUSE")
+	mouse_mode = _new

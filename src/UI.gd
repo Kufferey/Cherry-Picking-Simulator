@@ -8,5 +8,5 @@ func _ready() -> void:
 func _update_ui():
 	UI.text = ("SCORE: " + str(Data.score) + "\nx" + str(Data.cur_Times) + " Cherrys")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_update_ui()

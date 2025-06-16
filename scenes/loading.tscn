@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2ea7ww5qhl0"]
+
+[ext_resource type="Script" path="res://src/loading.gd" id="1_h2jab"]
+[ext_resource type="Texture2D" uid="uid://bd0vbxmfsbbnh" path="res://assets/images/Cherry_2.png" id="1_u3qy1"]
+[ext_resource type="Texture2D" uid="uid://bs2j8w4ydimn" path="res://assets/images/Cherry_1.png" id="3_nwytc"]
+[ext_resource type="Texture2D" uid="uid://ct0ndbwgc21bi" path="res://assets/images/BOX.png" id="3_ouy74"]
+[ext_resource type="AudioStream" uid="uid://xd06lyexyokq" path="res://assets/sound/Cherry_snap.ogg" id="4_khl0d"]
+
+[sub_resource type="Curve" id="Curve_k1jdf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.531469, 0.505494), 0.0, 0.0, 0, 0, Vector2(0.678322, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2yfwa"]
+texture_mode = 1
+curve = SubResource("Curve_k1jdf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08yb7"]
+particle_flag_disable_z = true
+direction = Vector3(0, 5, 0)
+gravity = Vector3(0, 500, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 929.41
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.01
+orbit_velocity_max = 0.01
+tangential_accel_min = -1.6
+tangential_accel_max = 49.41
+angle_min = -55.0
+angle_max = 55.0
+scale_max = 1.2
+turbulence_noise_strength = 19.82
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_2yfwa")
+
+[sub_resource type="Animation" id="Animation_4gw2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2hhaa"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jjtny"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wq4jy"]
+_data = {
+"RESET": SubResource("Animation_4gw2o"),
+"end": SubResource("Animation_2hhaa"),
+"start": SubResource("Animation_jjtny")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_h2jab")
+
+[node name="loading" type="Node2D" parent="."]
+
+[node name="Particles" type="Node2D" parent="loading"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="loading/Particles"]
+position = Vector2(0, -144)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_08yb7")
+texture = ExtResource("1_u3qy1")
+lifetime = 1.2
+visibility_rect = Rect2(-100, -100, 200, 600)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="loading/Particles"]
+position = Vector2(362, -144)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_08yb7")
+texture = ExtResource("3_nwytc")
+lifetime = 1.2
+visibility_rect = Rect2(-100, -100, 200, 600)
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="loading/Particles"]
+position = Vector2(782, -144)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_08yb7")
+texture = ExtResource("1_u3qy1")
+lifetime = 1.2
+visibility_rect = Rect2(-100, -100, 200, 600)
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="loading/Particles"]
+position = Vector2(1168, -144)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_08yb7")
+texture = ExtResource("3_nwytc")
+lifetime = 1.2
+visibility_rect = Rect2(-100, -100, 200, 600)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="loading"]
+libraries = {
+"": SubResource("AnimationLibrary_wq4jy")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="loading"]
+position = Vector2(575.25, 324)
+scale = Vector2(2.363, 1.368)
+texture = ExtResource("3_ouy74")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="loading"]
+stream = ExtResource("4_khl0d")
+pitch_scale = 0.75
+max_polyphony = 700

@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		$Logo.hide()
 		$Panel.hide()
 		$Resume.hide()
-		$Shop.hide()
+#		$Shop.hide()
 		$Exit.hide()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Game_Mouse.hide()
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 		$Logo.show()
 		$Panel.show()
 		$Resume.show()
-		$Shop.show()
+#		$Shop.show()
 		$Exit.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Game_Mouse.show()
@@ -83,4 +83,4 @@ func _on_exit_pressed() -> void:
 	if (!isInShop):
 		Data.isPaused = false
 		emit_signal("Remove_self")
-		get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+		Loading.start_load("res://scenes/mainmenu.tscn")

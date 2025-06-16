@@ -29,3 +29,9 @@ func _on_button_pressed() -> void:
 		
 		Data.isHoldingCherry = true
 		queue_free()
+
+func _on_button_mouse_entered() -> void:
+	Game_Mouse.get_child(0).mouse_entered = true
+
+func _on_button_mouse_exited() -> void:
+	Game_Mouse.get_child(0).mouse_entered = false

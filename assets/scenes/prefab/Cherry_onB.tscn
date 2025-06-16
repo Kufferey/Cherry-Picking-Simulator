@@ -25,4 +25,6 @@ offset_bottom = 58.0
 mouse_default_cursor_shape = 2
 
 [connection signal="Choose_cherry_look" from="." to="." method="_on_choose_cherry_look"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

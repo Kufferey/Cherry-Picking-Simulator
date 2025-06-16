@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dta8xoyo254xg"]
+[gd_scene load_steps=8 format=3 uid="uid://dta8xoyo254xg"]
 
 [ext_resource type="Script" path="res://src/options_menu.gd" id="1_bnl8o"]
 [ext_resource type="Texture2D" uid="uid://ct0ndbwgc21bi" path="res://assets/images/BOX.png" id="1_ibn2j"]
+[ext_resource type="Texture2D" uid="uid://bd0vbxmfsbbnh" path="res://assets/images/Cherry_2.png" id="3_qkoe8"]
+[ext_resource type="Texture2D" uid="uid://bcfe2frrlhedf" path="res://assets/images/questionmark.png" id="4_u4omh"]
 
 [sub_resource type="Theme" id="Theme_coprj"]
 default_font_size = 25
@@ -55,6 +57,39 @@ offset_bottom = 624.0
 theme = SubResource("Theme_vn2l2")
 text = "APPLY"
 
+[node name="ThemeCherry" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 15.0
+offset_right = 1139.0
+offset_bottom = 195.0
+tooltip_text = "Cherry Theme"
+icon = ExtResource("3_qkoe8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ThemeVoid" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 0
+offset_left = 945.0
+offset_top = 204.0
+offset_right = 1139.0
+offset_bottom = 384.0
+tooltip_text = "Void Theme"
+icon = ExtResource("4_u4omh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="t" type="Label" parent="Buttons"]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 18.0
+offset_right = 904.0
+offset_bottom = 44.0
+text = "THEMES:"
+
 [connection signal="toggled" from="Buttons/FS" to="." method="_on_fs_toggled"]
 [connection signal="toggled" from="Buttons/ShowCustomMouse" to="." method="_on_show_custom_mouse_toggled"]
 [connection signal="pressed" from="Buttons/Apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="Buttons/ThemeCherry" to="." method="_on_theme_cherry_pressed"]
+[connection signal="pressed" from="Buttons/ThemeVoid" to="." method="_on_theme_void_pressed"]

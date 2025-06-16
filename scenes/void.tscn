@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://ovbfo1r6hx1d"]
+
+[ext_resource type="Script" path="res://src/void.gd" id="1_wa06m"]
+[ext_resource type="Texture2D" uid="uid://ct0ndbwgc21bi" path="res://assets/images/BOX.png" id="1_yhktk"]
+[ext_resource type="AudioStream" uid="uid://cglu11m2ulidp" path="res://assets/music/secret.ogg" id="2_o0iie"]
+[ext_resource type="AudioStream" uid="uid://xd06lyexyokq" path="res://assets/sound/Cherry_snap.ogg" id="4_rfaba"]
+
+[node name="void" type="Node2D"]
+script = ExtResource("1_wa06m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(585, 314)
+scale = Vector2(3.898, 2.26)
+texture = ExtResource("1_yhktk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1330, 304)
+stream = ExtResource("2_o0iie")
+volume_db = 5.0
+pitch_scale = 0.25
+autoplay = true
+max_distance = 1435.0
+attenuation = 0.002022
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 67.0
+offset_top = 504.0
+offset_right = 1084.0
+offset_bottom = 617.0
+color = Color(1, 1, 1, 0.0666667)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1018.0
+offset_bottom = 120.0
+text = "You cannot be here.
+
+How did you get here?"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="loading" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="loading"]
+stream = ExtResource("4_rfaba")

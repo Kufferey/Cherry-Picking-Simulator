@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cherry Picking Simulator"
+config/name="Cherry Picking Simulator Mobile"
 config/tags=PackedStringArray("base_game", "full_game", "simulator")
 run/main_scene="res://scenes/mainmenu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 
 Data="*res://src/Data/Data.gd"
 Game_Mouse="*res://assets/scenes/prefab/Mouse.tscn"
+Loading="*res://scenes/loading.tscn"
 
 [display]
 
@@ -52,5 +53,4 @@ pause_menu_right={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"

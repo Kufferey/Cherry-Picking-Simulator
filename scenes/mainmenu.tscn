@@ -36,7 +36,7 @@ texture = ExtResource("2_5cpuc")
 [node name="ParallaxBackground_BACK" type="ParallaxBackground" parent="PALBG"]
 layer = -4
 script = ExtResource("1_sfx8o")
-SPEED = 200
+SPEED = 270
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PALBG/ParallaxBackground_BACK"]
 modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -175,7 +175,7 @@ flip_h = true
 [node name="ParallaxBackground_BACK_DARK" type="ParallaxBackground" parent="PALBG"]
 layer = -3
 script = ExtResource("1_sfx8o")
-SPEED = 250
+SPEED = 220
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PALBG/ParallaxBackground_BACK_DARK"]
 modulate = Color(0.168627, 0.168627, 0.168627, 1)
@@ -309,7 +309,7 @@ texture = ExtResource("2_xy6us")
 flip_h = true
 
 [node name="Apple6" type="Sprite2D" parent="PALBG/ParallaxBackground_BACK_MIDDLE/ParallaxLayer"]
-position = Vector2(208, 456)
+position = Vector2(258, 473)
 texture = ExtResource("2_xy6us")
 flip_h = true
 
@@ -349,7 +349,7 @@ texture = ExtResource("1_j1xwf")
 flip_h = true
 
 [node name="Apple23" type="Sprite2D" parent="PALBG/ParallaxBackground_BACK_MIDDLE/ParallaxLayer"]
-position = Vector2(872, 552)
+position = Vector2(910, 523)
 texture = ExtResource("1_j1xwf")
 flip_h = true
 
@@ -364,7 +364,7 @@ texture = ExtResource("1_j1xwf")
 flip_h = true
 
 [node name="Apple26" type="Sprite2D" parent="PALBG/ParallaxBackground_BACK_MIDDLE/ParallaxLayer"]
-position = Vector2(656, 288)
+position = Vector2(673, 308)
 texture = ExtResource("2_xy6us")
 flip_h = true
 
@@ -374,12 +374,12 @@ texture = ExtResource("1_j1xwf")
 flip_h = true
 
 [node name="Apple28" type="Sprite2D" parent="PALBG/ParallaxBackground_BACK_MIDDLE/ParallaxLayer"]
-position = Vector2(672, 584)
+position = Vector2(677, 572)
 texture = ExtResource("2_xy6us")
 flip_h = true
 
 [node name="Apple7" type="Sprite2D" parent="PALBG/ParallaxBackground_BACK_MIDDLE/ParallaxLayer"]
-position = Vector2(368, 568)
+position = Vector2(473, 569)
 texture = ExtResource("2_xy6us")
 flip_h = true
 

@@ -57,26 +57,12 @@ anchors_preset = -1
 anchor_top = 0.296
 anchor_right = 0.222
 anchor_bottom = 0.395
-offset_top = 192.0
+offset_top = 230.0
 offset_right = 256.0
-offset_bottom = 259.0
+offset_bottom = 297.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_npa0q")
 text = "RESUME"
-alignment = 0
-
-[node name="Shop" type="Button" parent="PauseMenu_stuff"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.494
-anchor_right = 0.222
-anchor_bottom = 0.593
-offset_top = 320.0
-offset_right = 256.0
-offset_bottom = 384.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_npa0q")
-text = "SHOP"
 alignment = 0
 
 [node name="Exit" type="Button" parent="PauseMenu_stuff"]
@@ -85,9 +71,9 @@ anchors_preset = -1
 anchor_top = 0.691
 anchor_right = 0.222
 anchor_bottom = 0.79
-offset_top = 448.0
+offset_top = 318.0
 offset_right = 256.0
-offset_bottom = 512.0
+offset_bottom = 382.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_npa0q")
 text = "EXIT TO MENU"
@@ -173,7 +159,6 @@ text = "Use [ARROW KEYS | <- and -> |] and [ESC] to exit. To switch and use diff
 
 [connection signal="Remove_self" from="PauseMenu_stuff" to="." method="_on_pause_menu_stuff_remove_self"]
 [connection signal="pressed" from="PauseMenu_stuff/Resume" to="PauseMenu_stuff" method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu_stuff/Shop" to="PauseMenu_stuff" method="_on_shop_pressed"]
 [connection signal="pressed" from="PauseMenu_stuff/Exit" to="PauseMenu_stuff" method="_on_exit_pressed"]
 [connection signal="move_icon_2xupgrades" from="PauseMenu_stuff/Shop_home/Icons/2xupgrades" to="PauseMenu_stuff/Shop_home/Icons/2xupgrades" method="_on_move_icon_2_xupgrades"]
 [connection signal="move_icon_hungerupgrades" from="PauseMenu_stuff/Shop_home/Icons/hungerupgrades" to="PauseMenu_stuff/Shop_home/Icons/hungerupgrades" method="_on_move_icon_hungerupgrades"]
